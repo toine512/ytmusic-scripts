@@ -1,0 +1,7 @@
+#Documentation: http://www.sno.phy.queensu.ca/~phil/exiftool/exiftool_pod.html#str
+#ID3 Tags: http://www.sno.phy.queensu.ca/~phil/exiftool/TagNames/ID3.html
+$Title
+by $Artist
+
+Album: $Album
+Year: $Year
