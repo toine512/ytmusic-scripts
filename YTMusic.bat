@@ -1,5 +1,5 @@
 @echo off
-rem toine512 - 09/08/2014
+rem toine512 - 19/08/2014
 rem The correct charset is OEM437 (OEM-US)
 
 title Youtube music video generator
@@ -41,7 +41,7 @@ if not "%~4"=="" (
 )
 
 rem Run ffmpeg
-YTMusic-res\ffmpeg.exe -y -loop 1 -i YTMusic-res/b720.png -i "%~1" -shortest -map_metadata 1:g -f mov -movflags faststart -pix_fmt yuv420p -c:v libx264 -flags +cgop -r 1 -coder 0 -refs 1 -deblock 0:0:0 -me_method zero -me_range 16 -cmp zero -subq 0 -psy 1 -psy-rd 1.00:0.00 -mixed-refs 0 -trellis 0 -8x8dct 0 -fast-pskip 1 -bluray-compat 0 -nr 0 -bf 0 -weightp 0 -g 250 -keyint_min 1 -sc_threshold 50 -mbtree 0 -crf 20.0 -qmin 0 -qmax 69 -qcomp 0.60 -qdiff 4 -aq-mode none -vf %ffvftop%drawtext="x=50:y=50:textfile=YTMusic_infotext:fontfile='YTMusic-res/DejaVuSans.ttf':fontsize=24:fontcolor=black" -c:a copy -sn "%~3"
+YTMusic-res\ffmpeg.exe -y -loop 1 -i YTMusic-res/b720.png -i "%~1" -shortest -map_metadata 1:g -f mov -movflags faststart -pix_fmt yuv420p -c:v libx264 -tune stillimage -preset ultrafast -flags +cgop -r 1 -vf %ffvftop%drawtext="x=50:y=50:textfile=YTMusic_infotext:fontfile='YTMusic-res/DejaVuSans.ttf':fontsize=24:fontcolor=black" -c:a copy -sn "%~3"
 set fferrorlvl=%ERRORLEVEL%
 echo.
 
